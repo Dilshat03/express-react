@@ -28,6 +28,6 @@ server.use((req, res, next) => {
 })
 
 
-server.listen(8000, () => {
+server.listen(process.env.PORT || 8000, () => {
     console.log('Server is running')
 })
