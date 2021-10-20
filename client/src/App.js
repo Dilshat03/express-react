@@ -5,7 +5,7 @@ const App = () => {
     const [tasks, setTasks] = useState([])
     const [nameTask,setNameTask] = useState('')
     useEffect(() => {
-        axios('http://localhost:8000/api/tasks')
+        axios('/api/tasks')
             .then(({data})=>setTasks(data))
     }, [])
     const handleChange = (e) => {
@@ -15,12 +15,12 @@ const App = () => {
     const nameItem =  {
       title: nameTask
     }
-        axios.post('http://localhost:8000/api/tasks', nameItem)
+        axios.post('/api/tasks', nameItem)
             .then(({data}) => setTasks([...tasks, data]))
         setNameTask('')
     }
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:8000/api/tasks/${id}`)
+        axios.delete(`/api/tasks/${id}`)
             .then(() => setTasks(tasks.filter(el => el._id !== id)))
 
     }
